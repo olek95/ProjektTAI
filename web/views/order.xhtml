@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.title}</title>
+        <h:outputStylesheet library="css" name="goods.css"/>
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="1">
+            <h:outputText value="#{msgs.orderHeader}" class="order-header"/>
+            <h:form>
+                <h:dataTable value="#{orderSessionController.getOrder()}" var="orderedComputer" bgcolor="LightGray" border="3" cellspacing="2">
+                    <h:column>
+                        <f:facet name="header">#{msgs.id}</f:facet>
+                        <h:outputText value="#{orderedComputer.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.model}</f:facet>
+                        <h:outputText value="#{orderedComputer.model}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.producer}</f:facet>
+                        <h:outputText value="#{orderedComputer.producer}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.ram}</f:facet>
+                        <h:outputText value="#{orderedComputer.ram}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.color}</f:facet>
+                        <h:outputText value="#{orderedComputer.color}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.price}</f:facet>
+                        <h:outputText value="#{orderedComputer.price}"/>
+                    </h:column>
+                    <h:column id="quantityColumn">
+                        <f:facet name="header">#{msgs.quantity}</f:facet>
+                        <h:outputText value="#{orderedComputer.quantity}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="#{msgs.removal}" action="#{orderSessionController.delete(orderedComputer)}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="#{msgs.removalAll}" action="#{orderSessionController.deleteAll()}"/>
+                <h:commandButton value="#{msgs.saving}" action="#{orderSessionController.save()}"/>
+            </h:form>
+        </h:panelGrid>
+    </h:body>
+</html>

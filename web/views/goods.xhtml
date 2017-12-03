@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.title}</title>
+        <h:outputStylesheet library="css" name="goods.css"/>
+    </h:head>
+    <h:body>
+        <h:panelGrid columns="1">
+            <h:outputText value="#{msgs.goodsHeader}" class="goods-header"/>
+            <h:form>
+                <h:dataTable value="#{computersSessionController.getComputersList()}" var="computer" bgcolor="LightGray" border="3" cellspacing="2">
+                    <h:column>
+                        <f:facet name="header">#{msgs.id}</f:facet>
+                        <h:outputText value="#{computer.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.model}</f:facet>
+                        <h:outputText value="#{computer.model}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.producer}</f:facet>
+                        <h:outputText value="#{computer.producer}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.ram}</f:facet>
+                        <h:outputText value="#{computer.ram}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.color}</f:facet>
+                        <h:outputText value="#{computer.color}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs.price}</f:facet>
+                        <h:outputText value="#{computer.price}"/>
+                    </h:column>
+                    <h:column id="quantityColumn">
+                        <f:facet name="header">#{msgs.quantity}</f:facet>
+                        <h:inputText value="#{computer.quantity}" binding="#{quantity}" onkeypress="return !(event.which &lt; 48 || event.which &gt; 57);" />
+                    </h:column>
+                    <h:column id="buyingColumn">
+                        <h:commandButton id="buying" value="#{msgs.buy}" action="#{computersSessionController.buy(computer, quantity.value)}">
+                            <f:ajax listener="#{computersSessionController.buy(computer, quantity.value)}" execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </h:panelGrid>
+    </h:body>
+</html>
