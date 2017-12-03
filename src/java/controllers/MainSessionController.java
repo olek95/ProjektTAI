@@ -9,7 +9,7 @@ public class MainSessionController {
     
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "/loggingOn.xhtml?faces-redirect=true";
+        return "/welcome.xhtml?faces-redirect=true";
     }
     
 }
