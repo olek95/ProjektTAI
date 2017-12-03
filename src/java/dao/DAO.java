@@ -26,6 +26,14 @@ public class DAO {
         }
     }
     
+    public void close() {
+        try { 
+            connection.close();
+        }catch(SQLException ex) {
+            writeError(ex);
+        }
+    }
+    
     protected void writeError(Exception ex) {
         FacesContext facesContext = FacesContext.getCurrentInstance(); 
         ServletContext servletContext = (ServletContext)facesContext.getExternalContext().getContext();

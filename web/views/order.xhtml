@@ -5,13 +5,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>#{msgs.title}</title>
-        <h:outputStylesheet library="css" name="goods.css"/>
+        <h:outputStylesheet library="css" name="order.css"/>
     </h:head>
     <h:body>
-        <h:panelGrid columns="1">
+        <h:form class="logout-panel">
+            <h:commandButton class="logout" value="#{msgs.logout}" action="#{mainSessionController.logout()}"/>
+        </h:form>
+        <h:panelGrid columns="1" class="page-content">
             <h:outputText value="#{msgs.orderHeader}" class="order-header"/>
             <h:form>
-                <h:dataTable value="#{orderSessionController.getOrder()}" var="orderedComputer" bgcolor="LightGray" border="3" cellspacing="2">
+                <h:dataTable value="#{orderViewController.getOrder()}" var="orderedComputer" bgcolor="LightGray" border="3" cellspacing="2" class="order-table">
                     <h:column>
                         <f:facet name="header">#{msgs.id}</f:facet>
                         <h:outputText value="#{orderedComputer.id}"/>
@@ -41,11 +44,13 @@
                         <h:outputText value="#{orderedComputer.quantity}"/>
                     </h:column>
                     <h:column>
-                        <h:commandButton value="#{msgs.removal}" action="#{orderSessionController.delete(orderedComputer)}"/>
+                        <h:commandButton value="#{msgs.removal}" action="#{orderViewController.delete(orderedComputer)}"/>
                     </h:column>
                 </h:dataTable>
-                <h:commandButton value="#{msgs.removalAll}" action="#{orderSessionController.deleteAll()}"/>
-                <h:commandButton value="#{msgs.saving}" action="#{orderSessionController.save()}"/>
+                <div class="options">
+                <h:commandButton value="#{msgs.removalAll}" action="#{orderViewController.deleteAll()}"/>
+                <h:commandButton class="saving-option" value="#{msgs.saving}" action="#{orderViewController.save()}"/>
+                </div>
             </h:form>
         </h:panelGrid>
     </h:body>

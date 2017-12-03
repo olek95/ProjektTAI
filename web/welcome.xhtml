@@ -7,12 +7,15 @@
         <h:outputStylesheet library="css" name="welcome.css"/>
     </h:head>
     <h:body>
-        <h:panelGrid columns="1">
+        <h:form class="logout-panel">
+            <h:commandButton class="logout" value="#{msgs.logout}" action="#{mainSessionController.logout()}"/>
+        </h:form>
+        <h:panelGrid columns="1" class="page-content">
             <h:outputText value="#{msgs.welcome}" class="welcome-message"/>
-            <h:outputText value="#{msgs.options}"/>
-            <h:form>
-                <h:commandButton value="#{msgs.displayingGoods}" action="goodsAlias"/>
-                <h:commandButton value="#{msgs.order}" action="#{orderSessionController.getOrderAlias()}"/>
+            <h:outputText class="options-text" value="#{msgs.options}"/>
+            <h:form class="options">
+                <h:commandButton class="option" value="#{msgs.displayingGoods}" action="goodsAlias"/>
+                <h:commandButton class="option" value="#{msgs.order}" action="#{orderViewController.getOrderAlias()}"/>
             </h:form>
         </h:panelGrid>
     </h:body>

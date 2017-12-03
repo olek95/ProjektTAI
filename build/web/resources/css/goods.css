@@ -1,3 +1,33 @@
 .goods-header {
+    font-size: 48px;
+    margin-left:20%;
+    margin-right: 20%;
+}
+
+.logout {
+    margin-left: 90%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.logout-panel {
+    background-color: greenyellow;
+}
+
+.page-content {
+    width:100%;
+}
+
+.computers-table {
+    margin-top: 2%;
+    margin-left: 3%;
+    width: 90%;
+}
+
+td {
     text-align: center;
+}
+
+.quanity-input {
+    width: 98%;
 }

@@ -1,3 +1,36 @@
 .welcome-message {
-    text-align: center;
+    font-size: 48px;
+    margin-left:30%;
+    margin-right: 20%;
+}
+
+.logout {
+    margin-left: 90%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.logout-panel {
+    background-color: greenyellow;
+}
+
+.page-content {
+    width:100%;
+}
+
+.options-text{
+    margin-left:43%;
+    margin-right: 20%;
+    font-size: 24px;
+}
+
+.options {
+    margin-left:42.2%;
+    margin-right: 20%;
+}
+
+.option {
+    display: block;
+    margin-top: 2%;
+    min-width: 170px;
 }

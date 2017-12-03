@@ -8,10 +8,13 @@
         <h:outputStylesheet library="css" name="goods.css"/>
     </h:head>
     <h:body>
-        <h:panelGrid columns="1">
+        <h:form class="logout-panel">
+            <h:commandButton class="logout" value="#{msgs.logout}" action="#{mainSessionController.logout()}"/>
+        </h:form>
+        <h:panelGrid columns="1" class="page-content">
             <h:outputText value="#{msgs.goodsHeader}" class="goods-header"/>
             <h:form>
-                <h:dataTable value="#{computersSessionController.getComputersList()}" var="computer" bgcolor="LightGray" border="3" cellspacing="2">
+                <h:dataTable value="#{computersSessionController.getComputersList()}" var="computer" bgcolor="LightGray" border="3" cellspacing="2" class="computers-table">
                     <h:column>
                         <f:facet name="header">#{msgs.id}</f:facet>
                         <h:outputText value="#{computer.id}"/>
@@ -30,7 +33,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msgs.color}</f:facet>
-                        <h:outputText value="#{computer.color}" />
+                        <h:outputText value="#{computer.color}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msgs.price}</f:facet>
@@ -38,7 +41,7 @@
                     </h:column>
                     <h:column id="quantityColumn">
                         <f:facet name="header">#{msgs.quantity}</f:facet>
-                        <h:inputText value="#{computer.quantity}" binding="#{quantity}" onkeypress="return !(event.which &lt; 48 || event.which &gt; 57);" />
+                        <h:inputText class="quanity-input" value="#{computer.quantity}" binding="#{quantity}" onkeypress="return !(event.which &lt; 48 || event.which &gt; 57);" />
                     </h:column>
                     <h:column id="buyingColumn">
                         <h:commandButton id="buying" value="#{msgs.buy}" action="#{computersSessionController.buy(computer, quantity.value)}">

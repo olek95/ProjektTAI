@@ -7,14 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import to.Computer;
 
 @ManagedBean
 @ViewScoped
-public class OrderSessionController {
+public class OrderViewController {
     @ManagedProperty(value="#{computersSessionController}") 
     private ComputersSessionController computersController;
     private List<Computer> order, computersToBeRemoved; 
@@ -23,7 +22,7 @@ public class OrderSessionController {
     /**
      * Creates a new instance of OrderSessionController
      */
-    public OrderSessionController() {
+    public OrderViewController() {
         dao = new OrdersDAO();
         computersToBeRemoved = new ArrayList(); 
     }
@@ -64,10 +63,11 @@ public class OrderSessionController {
     }
     
     @PreDestroy
-    private void revert() {
+    private void restore() {
         for(int i = 0; i < computersToBeRemoved.size(); i++) {
             order.add(computersToBeRemoved.get(i));
         }
         computersController.setOrder(order);
+        dao.close();
     }
 }

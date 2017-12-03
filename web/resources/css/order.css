@@ -1,3 +1,37 @@
 .order-header {
+    font-size: 48px;
+    margin-left:20%;
+    margin-right: 20%;
+}
+
+.logout {
+    margin-left: 90%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.logout-panel {
+    background-color: greenyellow;
+}
+
+.page-content {
+    width:100%;
+}
+
+.order-table {
+    margin-top: 2%;
+    margin-left: 3%;
+    width: 90%;
+}
+
+td {
     text-align: center;
+}
+
+.options {
+    margin-top: 1%;
+}
+
+.saving-option {
+    margin-left: 2%;
 }
