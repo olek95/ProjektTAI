@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/ProjektTAI">
-    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver"
-              maxActive="100" maxIdle="10" maxWait="10000" name="jdbc/projekt"
-              password="haslo12345" type="javax.sql.DataSource" 
-              url="jdbc:mysql://localhost:3306/projekt" username="aleksander"/>
+    <Realm localDataSource="false" className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="jdbc/projekt"
+           userTable="users" userNameCol="username" userCredCol="password"
+           userRoleTable="roles" roleNameCol="role_name"/>
 </Context>
