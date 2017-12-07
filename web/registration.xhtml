@@ -20,7 +20,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <h:commandButton value="#{msgs.registration}" />
+                        <h:commandButton value="#{msgs.registration}" action="#{registrationViewController.createUser(username.value, password.value)}"/>
+                    </td>
+                    <td>
+                        <h:commandButton value="#{msgs.back}" action="/welcome.xhtml?faces-redirect=true"/>
                     </td>
                 </tr>
             </table>

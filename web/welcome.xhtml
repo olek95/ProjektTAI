@@ -17,6 +17,7 @@
                 <h:commandButton class="option" value="#{msgs.displayingGoods}" action="goodsAlias"/>
                 <h:commandButton class="option" value="#{msgs.order}" action="#{orderViewController.getOrderAlias()}"/>
             </h:form>
+            <h:outputText value="#{msgs.timeInformation}#{applicationController.startDate}"/>
         </h:panelGrid>
     </h:body>
 </html>

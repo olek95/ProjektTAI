@@ -10,7 +10,7 @@ import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
 public class DAO {
-    protected Connection connection; 
+    protected Connection connection = null; 
     public DAO() {
         try {
             Context ctx = new InitialContext(); 
@@ -19,7 +19,7 @@ public class DAO {
         }catch(Exception ex) {
             writeError(ex);
            try {
-               connection.close();
+               if(connection != null) connection.close();
            }catch(SQLException ex2) {
                writeError(ex2);
            }

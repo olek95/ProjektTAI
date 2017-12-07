@@ -4,4 +4,12 @@
            dataSourceName="jdbc/projekt"
            userTable="users" userNameCol="username" userCredCol="password"
            userRoleTable="roles" roleNameCol="role_name"/>
+    <Resource auth="Container"
+        driverClassName="com.mysql.jdbc.Driver"
+        maxActive="100" maxIdle="30" maxWait="10000"
+        name="jdbc/projekt" password="haslo12345"
+        type="javax.sql.DataSource"
+        url="jdbc:mysql://localhost:3306/projekt"
+        username="olek"
+        />
 </Context>

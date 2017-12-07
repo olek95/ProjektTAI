@@ -34,3 +34,7 @@
     margin-top: 2%;
     min-width: 170px;
 }
+
+tr:last-child {
+    height:900px;
+}

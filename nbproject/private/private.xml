@@ -3,24 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/resources/css/goods.css</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/META-INF/context.xml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/MainSessionController.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/dao/RegistrationDAO.java</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/RegistrationViewController.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/classes/messages_en.properties</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/resources/css/welcome.css</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/dao/DAO.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/loggingOn.xhtml</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/resources/css/order.css</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/welcome.xhtml</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/views/order.xhtml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/dao/OrdersDAO.java</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/to/User.java</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/welcome.xhtml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/classes/messages_pl.properties</file>
-            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/views/goods.xhtml</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/ApplicationController.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/registration.xhtml</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/logout.xhtml</file>
         </group>
     </open-files>
 </project-private>
