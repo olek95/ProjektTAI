@@ -41,7 +41,10 @@
                     </h:column>
                     <h:column id="quantityColumn">
                         <f:facet name="header">#{msgs.quantity}</f:facet>
-                        <h:outputText value="#{orderedComputer.quantity}"/>
+                        <h:inputText class="quanity-input" value="#{orderedComputer.quantity}" binding="#{quantity}" onkeypress="return !(event.which &lt; 48 || event.which &gt; 57);" />
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="#{msgs.change}" action="#{orderViewController.changeQuantity(orderedComputer)}"/>
                     </h:column>
                     <h:column>
                         <h:commandButton value="#{msgs.removal}" action="#{orderViewController.delete(orderedComputer)}"/>

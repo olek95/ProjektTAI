@@ -16,8 +16,9 @@ import to.Computer;
 public class OrderViewController {
     @ManagedProperty(value="#{computersSessionController}") 
     private ComputersSessionController computersController;
-    private List<Computer> order, computersToBeRemoved; 
+    private List<Computer> order, computersToBeRemoved, initialOrder; 
     private OrdersDAO dao;
+    private boolean saved; 
 
     /**
      * Creates a new instance of OrderSessionController
@@ -25,6 +26,7 @@ public class OrderViewController {
     public OrderViewController() {
         dao = new OrdersDAO();
         computersToBeRemoved = new ArrayList(); 
+        initialOrder = new ArrayList();
     }
     
     public List<Computer> getOrder() { return order; }
@@ -40,11 +42,17 @@ public class OrderViewController {
     public void delete(Computer computer) {
         order.remove(computer);
         computersToBeRemoved.add(computer);
+        saved = false; 
     }
     
     public void deleteAll() {
         computersToBeRemoved = order;
         order.clear();
+        saved = false; 
+    }
+    
+    public void changeQuantity(Computer computer) {
+        saved = false; 
     }
     
     public void save() {
@@ -55,6 +63,7 @@ public class OrderViewController {
             dao.delete(computersToBeRemoved.get(i), username, i == (computersToBeRemovedQuantity - 1));
         }
         computersToBeRemoved = null;
+        saved = true; 
     }
     
     public String back() {
@@ -64,14 +73,18 @@ public class OrderViewController {
     @PostConstruct
     private void fillOrder() {
         this.order = computersController.getOrder();
+        int orderCount = order.size();
+        for(int i = 0; i < orderCount; i++) {
+            Computer computer = order.get(i);
+            initialOrder.add(new Computer(computer.getId(), computer.getModel(), 
+                    computer.getProducer(), computer.getRam(), computer.getColor(),
+                    computer.getPrice(), computer.isEdited(), computer.getQuantity()));
+        }
     }
     
     @PreDestroy
     private void restore() {
-        for(int i = 0; i < computersToBeRemoved.size(); i++) {
-            order.add(computersToBeRemoved.get(i));
-        }
-        computersController.setOrder(order);
+        if(!saved) computersController.setOrder(initialOrder);
         dao.close();
     }
 }
