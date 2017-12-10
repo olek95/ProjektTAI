@@ -7,6 +7,9 @@
         <title>#{msgs.title}</title>
     </h:head>
     <h:body>
+        <h:form>
+            <h:commandButton value="#{msgs.registration}" action="registration"/>
+        </h:form>
         <h:form p:method="post" p:action="j_security_check">
             <table align="center">
                 <tr>
@@ -26,9 +29,6 @@
                     </td>
                 </tr>
             </table>
-        </h:form>
-        <h:form>
-            <h:commandButton value="#{msgs.registration}" action="registration"/>
         </h:form>
     </h:body>
 </html>

@@ -20,11 +20,7 @@ public class ComputersDAO extends DAO{
         }catch(SQLException ex) {
             writeError(ex);
         }finally{
-            try {
-                connection.close();
-            }catch(SQLException ex) {
-                writeError(ex);
-            }
+            close(); 
         }
         return computers;
     }

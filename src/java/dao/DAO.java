@@ -6,6 +6,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
@@ -16,19 +17,15 @@ public class DAO {
             Context ctx = new InitialContext(); 
             DataSource datasource = (DataSource)ctx.lookup("java:comp/env/jdbc/projekt");
             connection = datasource.getConnection();
-        }catch(Exception ex) {
+        }catch(SQLException | NamingException ex) {
             writeError(ex);
-           try {
-               if(connection != null) connection.close();
-           }catch(SQLException ex2) {
-               writeError(ex2);
-           }
-        }
+            close(); 
+        } 
     }
     
     public void close() {
         try { 
-            connection.close();
+            if(connection != null) connection.close();
         }catch(SQLException ex) {
             writeError(ex);
         }

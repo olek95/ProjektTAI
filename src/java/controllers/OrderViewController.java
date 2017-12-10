@@ -48,13 +48,17 @@ public class OrderViewController {
     }
     
     public void save() {
-        dao.saveOrder(order, FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
+        dao.saveOrder(order, FacesContext.getCurrentInstance().getExternalContext().getRemoteUser(), false);
         int computersToBeRemovedQuantity = computersToBeRemoved.size(); 
         String username = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
         for(int i = 0; i < computersToBeRemovedQuantity; i++) {
-            dao.delete(computersToBeRemoved.get(i), username);
+            dao.delete(computersToBeRemoved.get(i), username, i == (computersToBeRemovedQuantity - 1));
         }
         computersToBeRemoved = null;
+    }
+    
+    public String back() {
+        return "/welcome.xhtml?faces-redirect=true";
     }
     
     @PostConstruct

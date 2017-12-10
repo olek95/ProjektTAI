@@ -48,8 +48,9 @@
                     </h:column>
                 </h:dataTable>
                 <div class="options">
-                <h:commandButton value="#{msgs.removalAll}" action="#{orderViewController.deleteAll()}"/>
-                <h:commandButton class="saving-option" value="#{msgs.saving}" action="#{orderViewController.save()}"/>
+                    <h:commandButton value="#{msgs.removalAll}" action="#{orderViewController.deleteAll()}"/>
+                    <h:commandButton class="next-option" value="#{msgs.saving}" action="#{orderViewController.save()}"/>
+                    <h:commandButton class="next-option" value="#{msgs.back}" action="#{orderViewController.back()}"/>
                 </div>
             </h:form>
         </h:panelGrid>

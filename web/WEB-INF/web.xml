@@ -35,7 +35,7 @@
             <url-pattern>/faces/views/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>students</role-name>
+            <role-name>customer</role-name>
         </auth-constraint>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>

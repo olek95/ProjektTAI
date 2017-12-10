@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import to.Computer;
 public class OrdersDAO extends DAO{
-    public void saveOrder(List<Computer> order, String username) {
+    public void saveOrder(List<Computer> order, String username, boolean shouldBeClosed) {
         try {
             for(int i = 0; i < order.size(); i++) {
                 Computer orderedComputer = order.get(i);
@@ -18,11 +18,7 @@ public class OrdersDAO extends DAO{
         } catch (SQLException ex) {
             writeError(ex);
         }finally{
-            try {
-                connection.close();
-            }catch(SQLException ex) {
-                writeError(ex);
-            }
+            if(shouldBeClosed) close(); 
         }
     }
     
@@ -41,22 +37,13 @@ public class OrdersDAO extends DAO{
             }
         }catch(SQLException ex) {
             writeError(ex);
-            try {
-                connection.close();
-            }catch(SQLException ex2) {
-                writeError(ex2);
-            }
         } finally {
-            try {
-                connection.close();
-            }catch(SQLException ex) {
-                writeError(ex);
-            }
+            close(); 
             return order; 
         }
     }
     
-    public void delete(Computer computer, String username) {
+    public void delete(Computer computer, String username, boolean shouldBeClosed) {
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE username=? AND product_id=?");
             statement.setString(1, username);
@@ -65,11 +52,7 @@ public class OrdersDAO extends DAO{
         } catch (SQLException ex) {
             writeError(ex);
         }finally{
-            try {
-                connection.close();
-            }catch(SQLException ex) {
-                writeError(ex);
-            }
+            if(shouldBeClosed) close(); 
         }
     }
     
