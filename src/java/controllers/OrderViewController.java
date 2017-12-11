@@ -17,14 +17,13 @@ public class OrderViewController {
     @ManagedProperty(value="#{computersSessionController}") 
     private ComputersSessionController computersController;
     private List<Computer> order, computersToBeRemoved, initialOrder; 
-    private OrdersDAO dao;
     private boolean saved; 
 
     /**
      * Creates a new instance of OrderSessionController
      */
     public OrderViewController() {
-        dao = new OrdersDAO();
+        OrdersDAO dao = new OrdersDAO();
         computersToBeRemoved = new ArrayList(); 
         initialOrder = new ArrayList();
     }
@@ -56,13 +55,14 @@ public class OrderViewController {
     }
     
     public void save() {
+        OrdersDAO dao = new OrdersDAO();
         dao.saveOrder(order, FacesContext.getCurrentInstance().getExternalContext().getRemoteUser(), false);
         int computersToBeRemovedQuantity = computersToBeRemoved.size(); 
         String username = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
         for(int i = 0; i < computersToBeRemovedQuantity; i++) {
             dao.delete(computersToBeRemoved.get(i), username, i == (computersToBeRemovedQuantity - 1));
         }
-        computersToBeRemoved = null;
+        computersToBeRemoved.clear();
         saved = true; 
     }
     
@@ -85,6 +85,5 @@ public class OrderViewController {
     @PreDestroy
     private void restore() {
         if(!saved) computersController.setOrder(initialOrder);
-        dao.close();
     }
 }

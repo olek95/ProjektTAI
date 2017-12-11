@@ -1,6 +1,7 @@
 package controllers;
 
 import dao.RegistrationDAO;
+import java.util.ResourceBundle;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -26,9 +27,13 @@ public class RegistrationViewController {
     
     private String validate(String username, String password) {
         if(username.isEmpty() || password.isEmpty()) 
-            return "Oba pola muszą być uzupełnione!";
+            return getProperText("errorEmptyFields");
         else if(new RegistrationDAO().exists(username))
-            return "Taki użytkownik już istnieje!";
+            return getProperText("errorUserDuplication");
         return "";
+    }
+    
+    private String getProperText(String key) {
+        return ResourceBundle.getBundle("messages", FacesContext.getCurrentInstance().getViewRoot().getLocale()).getString(key);
     }
 }
