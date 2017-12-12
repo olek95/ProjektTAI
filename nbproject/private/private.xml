@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/views/order.xhtml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/classes/messages_en.properties</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/RegistrationViewController.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/WEB-INF/classes/messages_pl.properties</file>
+            <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/ComputersSessionController.java</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/web/views/goods.xhtml</file>
             <file>file:/C:/Users/olek1/Documents/NetBeansProjects/TAI/ProjektTAI/src/java/controllers/OrderViewController.java</file>
         </group>

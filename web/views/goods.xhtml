@@ -48,6 +48,11 @@
                             <f:ajax listener="#{computersSessionController.buy(computer, quantity.value)}" execute="@form" render="@form"/>
                         </h:commandButton>
                     </h:column>
+                    <h:column id="supplyColumn">
+                        <h:commandButton id="supply" value="#{msgs.supply}" action="#{computersSessionController.supplyComputer()}">
+                            <f:ajax listener="#{computersSessionController.supplyComputer()}" execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </h:column>
                 </h:dataTable>
             </h:form>
         </h:panelGrid>

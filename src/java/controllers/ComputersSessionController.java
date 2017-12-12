@@ -40,6 +40,10 @@ public class ComputersSessionController {
         else order.set(index, computer);
     }
     
+    public void supplyComputer() {
+        
+    }
+    
     public List<Computer> getOrder() { return order; }
     
     public void setOrder(List<Computer> order) { this.order = order; }
