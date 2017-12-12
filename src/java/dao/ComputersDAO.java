@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,5 +24,34 @@ public class ComputersDAO extends DAO{
             close(); 
         }
         return computers;
+    }
+    
+    public void addNewComputer(Computer computer) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO computers VALUES(?, ?, ?, ?, ?, ?)");
+            statement.setLong(1, computer.getId());
+            statement.setString(2, computer.getModel());
+            statement.setString(3, computer.getProducer());
+            statement.setInt(4, computer.getRam());
+            statement.setString(5, computer.getColor());
+            statement.setDouble(6, computer.getPrice());
+            statement.executeUpdate();
+        }catch(SQLException ex) {
+            writeError(ex);
+        }finally{
+            close(); 
+        }
+    }
+    
+    public void remove(Computer computer) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM computers WHERE id=?");
+            statement.setLong(1, computer.getId());
+            statement.executeUpdate();
+        }catch(SQLException ex) {
+            writeError(ex);
+        }finally{
+            close(); 
+        }
     }
 }

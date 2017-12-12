@@ -49,8 +49,13 @@
                         </h:commandButton>
                     </h:column>
                     <h:column id="supplyColumn">
-                        <h:commandButton id="supply" value="#{msgs.supply}" action="#{computersSessionController.supplyComputer()}">
-                            <f:ajax listener="#{computersSessionController.supplyComputer()}" execute="@form" render="@form"/>
+                        <h:commandButton id="supply" value="#{msgs.supply}">
+                            <f:ajax listener="#{computersSessionController.supplyComputer(computer)}" execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </h:column>
+                    <h:column id="deleteColumn">
+                        <h:commandButton id="delete" value="#{msgs.removal}">
+                            <f:ajax listener="#{computersSessionController.remove(computer)}" execute="@form" render="@form"/>
                         </h:commandButton>
                     </h:column>
                 </h:dataTable>
