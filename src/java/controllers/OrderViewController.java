@@ -23,7 +23,6 @@ public class OrderViewController {
      * Creates a new instance of OrderSessionController
      */
     public OrderViewController() {
-        OrdersDAO dao = new OrdersDAO();
         computersToBeRemoved = new ArrayList(); 
         initialOrder = new ArrayList();
     }
